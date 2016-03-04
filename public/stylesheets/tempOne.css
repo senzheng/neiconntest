@@ -1,0 +1,39 @@
+
+#pop {
+    left: -199px!important;
+    max-width: 100%;
+    
+}
+
+#chat {
+	height: 400px;
+	width: 100%;
+}
+
+#pop .arrow {
+    left: 90%
+}
+
+span {
+	text-align: right;
+	display: inline-block;
+	text-decoration: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.list{
+	text-align: right;
+	display: inline-block;
+}
+
+.panel{
+	
+}
+
+.panel-body{
+	height: 305px;
+	overflow: scroll;
+}

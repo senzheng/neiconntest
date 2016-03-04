@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html> 
+  <head>
+  	<title>Neiconn Chat Room</title>
+  	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Playball|Open+Sans+Condensed:300,700" />
+    <link rel="stylesheet" href="stylesheets/tempOne.css">
+    <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+    <script src="controller/tempOneCtrl.js"></script>
+    <script src="controller/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <script>
+        var user  = <%- JSON.stringify(user) %>
+    </script>
+     
+  </head>
+  <body ng-app="tempOne">
+  	<div class="container" >
+      <h6>Neiconn Chat Room</h6>
+     
+    <!--Navbar begin-->
+     <nav class="navbar navbar-inverse"> 
+      <div class="container-fluid">
+      <label id= "me" class="navbar-brand"></label>
+          
+  </div><!-- /.container-fluid -->
+</nav>
+    <!--Navbar end-->
+    <script>
+      
+  </script>
+    <div class="row" ng-controller = "chatCtrl">
+        <div class="col-xs-3 col-md-3">
+            
+            <div id = "chat" class="panel panel-default">
+              <div class="panel-heading">
+                 <h3 class="panel-title"><span>Event Group</span>
+                 </h3>
+                 
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                   <button type="button" class="list-group-item" ng-repeat="friend in friends" ng-click="chat(friend)"><span align="left">{{friend.event.event_title}}</span></button>
+                </div>
+            </div>
+            </div>
+        </div>
+       
+          <div class="col-xs-9 col-md-9">
+               <div id="chat" class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">{{Reciver}}  {{groupNumber}}</h3>
+              
+                  </div>
+                  <div class="panel-body">
+                     <p ng-repeat="soc in socket">
+                      {{soc.name}} : {{soc.message}}
+                     </p>
+                  </div>
+                  <div class="panel-footer">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="message">
+                        <span class="input-group-btn">
+                          <button class="send btn btn-secondary" type="button" ng-click="send(message, group_id)">Send</button>
+                        </span>
+                    </div>
+                  </div>
+               </div>
+            </div>
+        <div>
+        </div>
+    </div>
+    <!--Chat model begin-->
+      <script>
+         $('.send').click(function(){
+            $('input[type = "text"]').val('');
+         });
+      </script>
+    <!--chat model end-->
+       
+    </div>
+  </body>
+</html>

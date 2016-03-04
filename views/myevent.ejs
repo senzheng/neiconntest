@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html ng-app="viewApp">
+<head>
+<title>Neiconn | Neighbor Connection- Find amazing people around you through your daily routines.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Hosting Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="text/javascript" src="js/node_modules/angular.min.js"></script>>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="stylesheets/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- Custom Theme files -->
+<link href="stylesheets/common.css" rel='stylesheet' type='text/css' />
+<link href="stylesheets/event.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!-- webfonts -->
+<link href='http://fonts.useso.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<!--icon-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--icon-->
+<!-- webfonts -->
+<!-- Add fancyBox main JS and CSS files -->
+<script src="js/filters/customFilters"></script>
+
+
+<script>
+   Angularjs.module('viewApp', ['customFilters']);
+</script>
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container-fluid"><!--the containerFuild starts-->
+       <div class="header"><!--header starts-->
+             <div class="image">
+			   <a href="/index">
+                <img src="images/NeiconnLogo.png" />
+              </a>
+		     </div>
+           	 <ul>
+           		<li><a href="#">Post Your Activity</a></li>
+           		<li><button href="#"><%= event.user.name %></button></li><!--Angularjs-->
+           	</ul>
+           	<div class="userpic"><img src="<%= event.user.photo%>" alt="Image"></div>
+          </div><!--header ends-->	
+      </div>
+
+    <div class="content container"><!--the content starts here-->
+     <div class="switch-bar"><!--the switch bar starts here-->
+     	<ul><!--the list for the switch the items-->
+     		<li>Upcoming</li><!--upcoming events-->
+     		<li>History</li><!--previous events-->
+        <ul><!--the list ends-->
+     </div><!--the switch bar ends here-->
+
+   <div class="activity-item">
+    <div class="col-sm-3 col-xs-3">
+       <ul class="leftmenu">
+       	<li>Host</li>
+       	<li>Attend</li>
+       </ul>
+    </div>
+    <div class="col-sm-9 col-xs-9">
+       <div class="col-sm-8 col-xs-8">
+           <div class="itemGrid"><!--Grid for displaying the activity item-->
+              <span>Activity Title</span>
+              <div class="details">
+                 <ul>
+                 	<li><i class="fa fa-map-signs"></i><a href="">Location</a></li>
+                 	<li><i class="fa fa-venus-mars"></i>Activity</li>
+                 	<li><i class="fa fa-globe"></i>Language</li>
+                 </ul>
+                 <ul>
+                 	<li><i class="fa fa-calendar-plus-o"></i>Date</li>
+                 	<li><i class="fa fa-clock-o"></i>Time</li>
+                 	<li><i class="fa fa-hourglass-half"></i>Duration</li>
+                 </ul>
+              </div>
+
+              <div class="button-detail">
+              	<button>Detail</button>
+              </div>
+           </div><!--Grid ends-->
+       </div>
+       <div class="col-sm-4 col-xs-4 side-bar">
+             <ul>
+             	<li>Pending Request</li>
+             	<li>Contact Guests</li>
+             	<li>Send Invitations</li>
+             	<li>Cancel</li>
+             </ul>
+       </div>
+    </div>
+   </div>
+
+    </div><!--the content ends here-->
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Hosting Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="stylesheets/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- Custom Theme files -->
+<link href="stylesheets/common.css" rel='stylesheet' type='text/css' />
+<link href="stylesheets/profile-edit.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!-- webfonts -->
+<link href='http://fonts.useso.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<!--icon-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--icon-->
+<!-- webfonts -->
+<!-- Add fancyBox main JS and CSS files -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+</head>
+<body ng-app="ActivitiesApp">
+  <div class="container-fluid"><!--the containerFuild starts-->
+       <div class="header"><!--header starts-->
+             <div class="image">
+			   <img src="images/NeiconnLogo.png" />
+		     </div>
+           	 <ul>
+           		<li><a href="#">Post Your Activity</a></li>
+           		<li><button href="#">FristName</button></li><!--Angularjs-->
+           	</ul>
+           	<div class="userpic"><img src="<%= user.facebook.photo%>" alt="Image"></div>
+          </div><!--header ends-->	
+      </div>
+
+      <div class="container">
+        <div class="userPic">
+          <img src="<%= user.facebook.photo%>" alt="Photos">
+        </div>
+        <form method="post" action="/update_user" Content-Type="application/x-www-form-urlencoded">
+            <div class="required">
+               <span class="title">Required</span>
+               <br><br><label>Your ID</label><input type="text" name="id" placeholder="<%= user._id%>" value="<%= user._id%>"/>
+               <div class="name"><!--For first name and last name-->
+                  <ul>
+                    
+                    <li><label>FirstName</label><input type="text" name="firstname" placeholder="<%= user.neiconn.firstName%>" /></li>
+                    <li><label>LastName</label><input type="text" name="lastname" placeholder="<%= user.neiconn.lastName%>"/></li>
+                  </ul>
+               </div>
+
+               <div class="dob"><!--for date of birth and gender-->
+                     <ul>
+                       <li>
+                         <label>Date Of Birth</label>
+                         <input type="text" name="month" placeholder="<%= user.neiconn.birth.month%>" value="<%= user.neiconn.birth.month %>"/>
+                         <input type="text" name="day" placeholder="<%= user.neiconn.birth.day%>" value="<%= user.neiconn.birth.day %>"/>
+                         <input type="text" name="year" placeholder="<%= user.neiconn.birth.year%>" value="<%= user.neiconn.birth.year %>"/>
+                       </li>
+                       <li>
+                         <label>Gender</label>
+                         <input type="text" name="gender" placeholder="<%= user.facebook.gender%>" disabled /> 
+                       </li>
+                     </ul>
+               </div>
+
+               <div class="division">
+                <label>Phone Number</label>
+                <input type="text" name="phone" placeholder="<%= user.neiconn.phone%>" value="<%= user.neiconn.phone%>"/>
+               </div>
+
+               <div class="division">
+                <label>Location</label>
+                <input type="text" name="location" placeholder="<%= user.neiconn.location%>" value="<%= user.neiconn.location %>"/>
+               </div>
+
+               <div class="language">
+                <label>Language</label>
+                <input type="text" name="language" placeholder="<%= user.neiconn.language%>" value="<%= user.neiconn.language %>"/>
+               </div>
+            </div>
+
+            <div class="optional">
+                <span class="title">Optional</span>
+                <div class="division">
+                  <label>School</label>
+                  <input type="text" name="school" placeholder="<%= user.neiconn.school%>" value="<%= user.neiconn.school%>"/>
+               </div>
+
+               <div class="division">
+                <label>Work</label>
+                <input type="text" name="work" placeholder="<%= user.neiconn.work%>" value="<%= user.neiconn.work%>"/>
+               </div>
+
+               <div class="about">
+                <label>About</label>
+                <input type="text" name="about" placeholder="<%= user.neiconn.about%>" value="<%= user.neiconn.about%>"/>
+               </div>
+            </div>
+
+            <div class="button"> 
+              <input type="submit" value="submit" />
+              <input type="button" value="Cancel" />
+            </div>
+        </form>    
+      </div>
+
+</body>

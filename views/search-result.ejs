@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html ng-app="neiconn">
+<head>
+<title>Neiconn | Neighbor Connection- Find amazing people around you through your daily routines.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Hosting Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="stylesheets/bootstrap.css" rel='stylesheet' type='text/css' />
+
+ <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
+ <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js"></script>
+ <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="node_modules/angular.min.js"></script>
+
+<script>
+         angular.module('neiconn',['customFilters']);
+ </script>
+<!-- Custom Theme files -->
+<link href="stylesheets/styleResult.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--icon-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--icon-->
+<!-- webfonts -->
+<!-- Add fancyBox main JS and CSS files -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="js/controllers/neiconnCtrl.js"></script>
+      <script src="js/controllers/neiconnListCtrl.js"></script>
+      <script src="js/filters/customFilters.js"></script>
+      <script>
+         var events  = <%- JSON.stringify(event) %>
+      </script>
+
+</head>
+<body ng-controller="neiconnCtrl" >
+	<div class="head"><!--header starts-->
+		<div class="logo"><!--logo starts-->
+           <div class="image">
+			 <img src="images/NeiconnLogo.png" />
+		   </div>
+		    <ul>
+		    	<li><a href="#">How It Works</a></li>
+		    	<ul>
+                      <li><a type="button" class="btn1" data-toggle="modal" data-target="#signUp">
+                          Sign Up</a></li>
+                      <li><a type="button" class="btn1" data-toggle="modal" data-target="#login">
+                          Log In</a></li>
+                    </ul>
+              </div>
+
+                  <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <div class="header-dialog"><!--header starts-->
+                          <div class="image">
+                            neiconn
+                          </div>
+                      </div><!--header ends-->  
+                    </div>
+                    
+                    <div class="modal-body">
+                      <span>Sign Up with</span>
+                            <div class="social-media">
+                              <ul>
+                                <li><a href="/auth/facebook"><i class="fa fa-facebook-square fa-3x"></i></a></li>
+                                <li><i class="fa fa-linkedin-square fa-3x"></i></li>
+                              </ul>
+                            </div>
+                            <span class="font-one">OR</span>
+                            <div class="local-sign">
+                              <button class="btn-sign">Sign up with Email</button>
+                              <p>Already have an account? <a> Log In</a></p>
+                            </div>
+
+                            <div class="div-term">
+                              <p>By signing up, I agree to Neiconn’s <a>Term of Use </a>and <a>Privacy Policy.</a></p>
+                            </div>
+                    </div>
+                   </form> 
+                  </div>
+
+                </div>
+              </div>
+              <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <div class="header-dialog"><!--header starts-->
+                          <div class="image">
+                            neiconn
+                          </div>
+                      </div><!--header ends-->  
+                    </div>
+                    
+                    <div class="modal-body">
+                      <span>Log in with</span>
+                            <div class="social-media">
+                              <ul>
+                                <li><a href="/connect/facebook"><i class="fa fa-facebook-square fa-3x"></i></a></li>
+                                <li><i class="fa fa-linkedin-square fa-3x"></i></li>
+                              </ul>
+                            </div>
+                            <span class="font-one">OR</span>
+                            <div class="local-login">
+                              <ul>
+                                <li><input type="text" placeholder="Email"></li>
+                                <li><input type="passwprd" placeholder="Password"></li>
+                              </ul>
+                              <a>Forgot your password?</a>
+                            </div>
+
+                            <div class="div-btn">
+                              <button type="button" class="btn-login">Log In</button>
+                            </div>
+                    </div>
+                   </form> 
+                  </div>
+
+                </div>
+              </div>
+
+	</div><!--header ends-->
+  <div class="container" ng-controller="eventListCtrl"> 
+	<div class="content" ><!--content starts-->
+		<div class="title">	<!--title starts-->
+			<span class="col-sm-8 col-xs-6"></span>
+		
+			<div class="clearfix"></div>
+		</div><!--Title ends-->
+		<div class="col-md-8"><!--grid start-->
+			<div class="row"><!--the row starts-->
+			   <div class="grid col-sm-6 col-xs-12" ng-repeat="event in data | filter:categoryFilterFn | range:selectedPage:pageSize">
+                 <div class="thumbnail" ><!--The thumbnail starts-->
+
+                    <img src="{{event.content.photo[0]}}" ng-click="redirect()" alt="Uploading Soon">
+                    <div class="caption">
+                    	<div class="proimg">
+                    		<img class="imgcircle" src="{{event.user.photo}}" ng-click="redirectEvent()" alt=""/>
+                    	</div>
+                    	<!--Comments and Rate-->
+                        <div class="topic">	
+                         <form method="post" action="/event">
+                           <input type="text" name="id" value="{{event._id}}" style="display: none">
+                           <input class="click_title" type="submit" value="{{event.content.title}}">
+                         </form>
+                    	</div>
+                    	<div class="category">
+                    	  <p>{{event.content.category}}</p>
+                        </div>
+                        <div class="tandc">
+                           <div class="rateStar">
+                           	<i class="fa fa-star"></i>
+                          </div>
+                          <p class="rateNum">{{event.user.rating}}</p> 
+                           <div class="commenticon">
+                           	<i class="fa fa-file-text-o"></i>
+                          </div>
+                          <p class="commentNum">{{event.user.reviews}}</p> 
+                       </div><!--Comments and Rate-->
+                       <div class="price">
+           	            <p>$ {{event.content.price}}</p>
+                      </div>
+                    </div>
+                 </div><!--The thumbnail ends-->
+              </div>
+           </div><!--the row ends-->
+
+
+		</div><!--grid ends-->
+		<div id="neiconn_map" class="col-sm-4" ><!--Map start-->
+        <div id="map_canvas">
+        </div>   
+		</div><!--Map ends-->
+</div><!--content ends-->
+
+<div class="pageBtn-group">
+                <a ng-repeat="page in data | filter:categoryFilterFn | pageCount:pageSize"
+                   ng-click="selectPage($index + 1)" class="pageBtn"
+                   ng-class="getPageClass($index + 1)">{{$index + 1}}
+                </a>
+    </div>
+	</div>
+<div class="container-fluid footer">
+       
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-3 box_2">
+            <h4>Company</h4>
+            <ul class="list_2">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Term of Use</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+            
+            <div class="clearfix"> </div>
+          </div>
+          <div class="col-md-3 box_2">
+            <h4>Company</h4>
+            <ul class="list_2">
+              <li><a href="#">Why Host</a></li>
+              <li><a href="#">Hospitality</a></li>
+              <li><a href="#">Host Safety</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 box_2">
+            <h4>Join Us</h4>
+            <ul class="footer_social">
+              <li><a href=""> <i class="fb"> </i> </a></li>
+              <li><a href=""><i class="tw"> </i> </a></li>
+              <li><a href=""><i class="linkedin"> </i> </a></li>
+              <li><a href=""><i class="google"> </i> </a></li>
+             </ul>
+          </div>
+        
+</div>
+
+  
+</body>
+</html>

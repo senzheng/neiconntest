@@ -1,0 +1,54 @@
+.header-dialog {
+	width: 100%;
+	height: 100%;
+	background-color: #b5ddfa;
+	text-align: center;
+}
+
+.modal-body {
+	height: 365px;
+	width:100%;
+	text-align: center;
+}
+
+.modal-header {
+	padding: 0;
+	height: 60px;
+	width: 100%;
+}
+
+.modal-content {
+	width: 425px;
+	height: 450px;
+	background-color: white;
+
+}
+
+.image {
+	color: #fbfbfb;
+	font-family: "lucida Calligraphy";
+	font-size: 29px;
+	font-style: italic;
+	line-height: 40px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding-top: 0;
+}
+
+.modal_title {
+	color: #535353;
+	font-family: "Helvetica Neue";
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 29px;
+}
+
+
+.modal_subtitle{
+	color: #666;
+	font-family: "Helvetica Neue";
+	font-size: 16px;
+	font-weight: 700;
+	font-height:19px;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Hosting Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="stylesheets/bootstrap.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+<!-- Custom Theme files -->
+<link href="stylesheets/common.css" rel='stylesheet' type='text/css' />
+<link href="stylesheets/profile-edit.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!-- webfonts -->
+<!--icon-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--icon-->
+<!-- webfonts -->
+<!-- Add fancyBox main JS and CSS files -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+  function showResult(result) {
+    document.getElementsByName('lat')[0].value = result.geometry.location.lat();
+    document.getElementsByName('lon')[0].value = result.geometry.location.lng();
+}
+
+function getLatitudeLongitude(callback, address) {
+    // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
+    address = address || 'Ferrol, Galicia, Spain';
+    // Initialize the Geocoder
+    geocoder = new google.maps.Geocoder();
+    if (geocoder) {
+        geocoder.geocode({
+            'address': address
+        }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                callback(results[0]);
+            }
+        });
+    }
+}
+
+function getCor() {
+       var address = document.getElementsByName('address')[0].value;
+       getLatitudeLongitude(showResult, address);
+  };
+
+</script>
+    
+
+</head>
+<body ng-app="ActivitiesApp">
+  <div class="container-fluid"><!--the containerFuild starts-->
+       <div class="header"><!--header starts-->
+             <div class="image">
+			   <img src="images/NeiconnLogo.png" />
+		     </div>
+           	 <ul>
+           		<li><a href="/mypage">Your Page</a></li>
+           		<li><a href="/editprofile"><%= user.facebook.name %></a></li><!--Angularjs-->
+           	</ul>
+           	<div class="userpic"><img src="<%= user.facebook.photo%>" alt="Image"></div>
+          </div><!--header ends-->	
+      </div>
+
+      <div class="container">
+       
+        <form method="post" action="/createevent" Content-Type="application/x-www-form-urlencoded">
+            <div class="required">
+               <span class="title">Required</span>
+               <br><br><label>Your ID</label><input type="text" name="id" placeholder="<%= user._id%>" value="<%= user._id%>"/>
+               <div class="name"><!--For first name and last name-->
+                  <ul>
+                    
+                    <li><label>Activity Name</label><input type="text" name="title" placeholder="Give a name for this event" required="" /></li>
+                    <li><label>Your Name</label><input type="text" name="name" placeholder="<%= user.neiconn.firstName%> <%= user.neiconn.lastName%>" required/></li>
+                  </ul>
+               </div>
+
+               <div class="dob"><!--for date of birth and gender-->
+                     <ul>
+                       <li>
+                         <label>Time</label>
+                         <input type="text" name="date" placeholder="Date"   required />
+                         <input type="text" name="time" placeholder="Time"  required/>
+                         <input type="text" name="duration" placeholder="Duration"  required/>
+                       </li>
+                       <li>
+                         <label>Category</label>
+                         <input type="text" name="category" placeholder="Category" required /> 
+                       </li>
+                     </ul>
+               </div>
+
+               <div class="division">
+                <label>Address</label>
+                <input type="text" name="address" placeholder="Address" onblur = "getCor()" required />
+               </div>
+               
+                <div class="division" style="display : none">
+                <label>Longtitude</label>
+                <input type="text" name="lon" placeholder="lon" required />
+               </div>
+
+               <div class="division" style="display : none">
+                <label>Photo</label>
+                <input type="text" name="photo" placeholder="photo" value="<%= user.facebook.photo %>" required />
+               </div>
+               
+
+                <div class="division" style="display : none">
+                <label>email</label>
+                <input type="text" name="email" placeholder="email" value="<%= user.facebook.email %>" required />
+               </div>
+
+                <div class="division" style="display : none">
+                <label>reviews</label>
+                <input type="text" name="reviews" placeholder="reviews" value="<%= user.neiconn.reviews.length %>" required />
+               </div>
+
+               <div class="division" style="display : none">
+                <label>rating</label>
+                <input type="text" name="rating" placeholder="rating" value="<%= user.neiconn.ratingtotal %>" required />
+               </div>
+
+                <div class="division" style="display : none">
+                <label>Latitude</label>
+                <input type="text" name="lat" placeholder="lat" required />
+               </div>
+
+
+               <div class="division">
+                <label>Language</label>
+                <input type="text" name="language" placeholder="Language" required />
+               </div>
+
+               <div class="language">
+                <label>Venue</label>
+                <input type="text" name="venue" placeholder="Venue" required />
+               </div>
+
+               <div class="language">
+                <label>Provisions</label>
+                <input type="text" name="provision" placeholder="Provision" required />
+               </div>
+
+                <div class="language">
+                <label>Cost / Person</label>
+                <input type="text" name="price" placeholder="cost" required />
+               </div>
+
+               <div class="language">
+                <label>Number of Guest</label>
+                <input type="text" name="total_attendees" placeholder="Guest Number" required />
+               </div>
+
+               
+            </div>
+
+            <div class="optional">
+                <span class="title">About Event </span>
+                <div class="eventAbout">
+                  <label>about</label>
+                  <input  type="text" name="about" placeholder="Write about your event" required />
+               </div>
+
+               <div class="division_rule">
+                <label>rule</label>
+                <input type="text" name="rule" placeholder="Rules about this event" required />
+               </div>
+
+               
+              
+            </div>
+
+            <div class="button"> 
+              <input type="submit" value="submit" />
+              <input type="button" value="Cancel" />
+            </div>
+        </form>    
+      </div>
+
+
+     
+
+</body>
