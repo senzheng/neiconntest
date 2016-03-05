@@ -6,7 +6,7 @@ module.exports = {
     'facebookAuth' : {
         'clientID'        : '234036336936602', // your App ID
         'clientSecret'    : 'f756796a2460dd523e37c1f409e136fc', // your App Secret
-        'callbackURL'     : 'http://localhost:8080/auth/facebook/callback'
+        'callbackURL'     : 'http://www.neiconn.com/auth/facebook/callback'
     },
 
     'twitterAuth' : {
