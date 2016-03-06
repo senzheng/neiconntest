@@ -10,7 +10,10 @@
 	width:100%;
 	text-align: center;
 }
-
+img {
+	height: 100%;
+	display: inline-block;
+}
 .modal-header {
 	padding: 0;
 	height: 60px;
@@ -23,6 +26,79 @@
 	background-color: white;
 
 }
+
+#howitworks .modal-dialog {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+
+}
+
+#howitworks .modal-content{
+	width: 100%;
+	height: 100%;
+	background-color: #f6f2f1;
+}
+
+
+
+.howitworkheader {
+	width: 100%;
+	height: 30%;
+	display: inline-block;
+	text-align: center;
+}
+
+
+
+.howitworkheader span {
+	font-family: "Helvetica Neue";
+	font-size  : 58px;
+	font-weight : normal;
+	padding-left: 20px;
+	display: inline-block;
+}
+
+.howitworkbody {
+	width: 100%;
+	height: 40%;
+}
+
+.content_modal {
+	height: 100%;
+	padding: 30px 70px 20px 70px;
+	text-align: center;
+}
+
+.content_modal:nth-child(4) {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.content_modal h6 {
+   color: #ed8450;
+   font-family: "Helvetica Neue";
+   font-size: 24px;
+   font-weight: bold;
+}
+
+.content_modal p {
+	font-family: "Helvetica Neue";
+	font-size: 16px;
+	color: #595757;
+	text-align: left;
+}
+
+.howitworkbody img {
+	width: 100%;
+}
+
+.howitworkfooter {
+	widows: 100%;
+	height: 30%;
+}
+
+
 
 .image {
 	color: #fbfbfb;
